@@ -1,0 +1,90 @@
+---
+const highlights = [
+  {
+    icon: '🌐',
+    title: 'Ecosistema Web',
+    description: 'Desarrollo de aplicaciones web modernas, escalables y con experiencias de usuario excepcionales.',
+    titleKey: 'about.highlight1.title',
+    descKey: 'about.highlight1.desc',
+  },
+  {
+    icon: '⚙️',
+    title: 'Automatización',
+    description: 'Diseño e implementación de procesos automatizados que optimizan flujos de trabajo y reducen tiempos.',
+    titleKey: 'about.highlight2.title',
+    descKey: 'about.highlight2.desc',
+  },
+  {
+    icon: '🏗️',
+    title: 'Arquitectura',
+    description: 'Diseño de arquitecturas de software robustas y orientadas a resultados, pensadas para escalar.',
+    titleKey: 'about.highlight3.title',
+    descKey: 'about.highlight3.desc',
+  },
+  {
+    icon: '🚀',
+    title: 'Orientado a Resultados',
+    description: 'Cada solución está pensada para generar impacto real y valor medible en los proyectos.',
+    titleKey: 'about.highlight4.title',
+    descKey: 'about.highlight4.desc',
+  },
+];
+---
+
+<section id="sobre-mi" class="py-24 relative">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <p class="text-primary font-medium mb-2" data-i18n="about.badge">Sobre mí</p>
+      <h2 class="section-title" data-i18n="about.title">Conoce mi trayectoria</h2>
+      <p class="section-subtitle mx-auto" data-i18n="about.subtitle">
+        Apasionado por crear soluciones tecnológicas que generan impacto real
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Text Content -->
+      <div class="space-y-6">
+        <p class="text-text-secondary text-lg leading-relaxed" data-i18n="about.p1">
+          Soy un <strong class="text-text-primary">ingeniero de software</strong> con base en
+          <strong class="text-text-primary">Pereira, Colombia</strong>, apasionado por transformar
+          problemas complejos en soluciones elegantes, escalables y mantenibles.
+        </p>
+        <p class="text-text-secondary text-lg leading-relaxed" data-i18n="about.p2">
+          Mi enfoque se centra en el <strong class="text-text-primary">ecosistema web</strong>,
+          la <strong class="text-text-primary">automatización de procesos</strong> y el
+          <strong class="text-text-primary">diseño de arquitecturas orientadas a resultados</strong>.
+          Disfruto trabajar en equipo, aprender constantemente y mantenerme a la vanguardia tecnológica.
+        </p>
+        <p class="text-text-secondary text-lg leading-relaxed" data-i18n="about.p3">
+          Creo firmemente que la mejor tecnología es la que resuelve problemas reales y
+          mejora la vida de las personas. Por eso, cada línea de código que escribo tiene
+          un propósito claro.
+        </p>
+
+        <!-- Download CV -->
+        <div class="pt-4">
+          <a href="/cv.pdf" download class="btn-primary">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span data-i18n="about.downloadCV">Descargar CV</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Highlights Grid -->
+      <div class="grid sm:grid-cols-2 gap-4">
+        {
+          highlights.map((item) => (
+            <div class="card">
+              <div class="text-3xl mb-3">{item.icon}</div>
+              <h3 class="text-lg font-semibold text-text-primary mb-2" data-i18n={item.titleKey}>{item.title}</h3>
+              <p class="text-text-muted text-sm leading-relaxed" data-i18n={item.descKey}>{item.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

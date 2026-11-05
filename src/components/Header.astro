@@ -1,0 +1,122 @@
+---
+const navLinks = [
+  { href: '#inicio', label: 'Inicio', key: 'nav.home' },
+  { href: '#sobre-mi', label: 'Sobre mí', key: 'nav.about' },
+  { href: '#habilidades', label: 'Habilidades', key: 'nav.skills' },
+  { href: '#proyectos', label: 'Proyectos', key: 'nav.projects' },
+  { href: '#experiencia', label: 'Experiencia', key: 'nav.experience' },
+  { href: '#contacto', label: 'Contacto', key: 'nav.contact' },
+];
+---
+
+<header
+  class="fixed top-0 left-0 right-0 z-50 bg-bg-dark/80 backdrop-blur-lg border-b border-border"
+>
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="#inicio" class="flex items-center gap-2">
+        <span class="text-2xl font-bold gradient-text">DLGO</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-1">
+        {
+          navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="px-3 py-2 text-sm text-text-secondary hover:text-text-primary rounded-lg transition-colors duration-200 hover:bg-bg-card"
+              data-i18n={link.key}
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+
+      <!-- Right side: Lang + CTA -->
+      <div class="hidden md:flex items-center gap-3">
+        <!-- Language Toggle -->
+        <div class="flex items-center bg-bg-card rounded-lg p-1 border border-border">
+          <button class="lang-btn px-2 py-1 text-xs font-medium rounded-md transition-colors" data-lang="es">
+            ES
+          </button>
+          <button class="lang-btn px-2 py-1 text-xs font-medium rounded-md transition-colors" data-lang="en">
+            EN
+          </button>
+        </div>
+
+        <a
+          href="#contacto"
+          class="btn-primary text-sm !py-2 !px-4"
+          data-i18n="nav.cta"
+        >
+          Contáctame
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="flex md:hidden items-center gap-2">
+        <!-- Mobile Language Toggle -->
+        <div class="flex items-center bg-bg-card rounded-lg p-1 border border-border">
+          <button class="lang-btn px-2 py-1 text-xs font-medium rounded-md transition-colors" data-lang="es">
+            ES
+          </button>
+          <button class="lang-btn px-2 py-1 text-xs font-medium rounded-md transition-colors" data-lang="en">
+            EN
+          </button>
+        </div>
+
+        <button
+          id="mobile-menu-btn"
+          class="p-2 text-text-secondary hover:text-text-primary"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden pb-4">
+      <div class="flex flex-col gap-1">
+        {
+          navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="mobile-link px-3 py-2 text-text-secondary hover:text-text-primary rounded-lg transition-colors duration-200 hover:bg-bg-card"
+              data-i18n={link.key}
+            >
+              {link.label}
+            </a>
+          ))
+        }
+        <a href="#contacto" class="btn-primary text-sm mt-2 justify-center" data-i18n="nav.cta">
+          Contáctame
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  menuBtn?.addEventListener('click', () => {
+    const isHidden = mobileMenu?.classList.contains('hidden');
+    mobileMenu?.classList.toggle('hidden');
+    menuBtn.setAttribute('aria-expanded', String(isHidden));
+  });
+
+  mobileLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      menuBtn?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

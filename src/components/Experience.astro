@@ -1,0 +1,118 @@
+---
+const experiences = [
+  {
+    period: '2024 - Presente',
+    role: 'Ingeniero de Software',
+    company: 'Empresa Actual',
+    location: 'Pereira, Colombia',
+    description:
+      'Desarrollo de soluciones web completas, implementación de arquitecturas escalables y automatización de procesos clave para el negocio.',
+    achievements: [
+      'Diseño e implementación de aplicaciones web full stack',
+      'Automatización de procesos que redujeron tiempos operativos',
+      'Implementación de buenas prácticas y estándares de código',
+    ],
+    technologies: ['JavaScript', 'Node.js', 'React', 'PostgreSQL', 'Docker'],
+  },
+  {
+    period: '2023 - 2024',
+    role: 'Desarrollador Web',
+    company: 'Empresa Anterior',
+    location: 'Pereira, Colombia',
+    description:
+      'Desarrollo frontend y backend de aplicaciones web, colaboración en equipos ágiles y contribución a la mejora continua de los procesos de desarrollo.',
+    achievements: [
+      'Desarrollo de interfaces responsivas y accesibles',
+      'Integración con APIs REST y servicios externos',
+      'Participación en code reviews y mejora de calidad',
+    ],
+    technologies: ['HTML', 'CSS', 'JavaScript', 'Python', 'Git'],
+  },
+  {
+    period: '2022 - 2023',
+    role: 'Practicante de Desarrollo',
+    company: 'Empresa de Prácticas',
+    location: 'Pereira, Colombia',
+    description:
+      'Inicio de carrera profesional con participación en proyectos reales, aprendizaje de tecnologías y metodologías ágiles.',
+    achievements: [
+      'Contribución al desarrollo de módulos internos',
+      'Aprendizaje de tecnologías web modernas',
+      'Participación en reuniones de planificación',
+    ],
+    technologies: ['HTML', 'CSS', 'JavaScript', 'MySQL'],
+  },
+];
+---
+
+<section id="experiencia" class="py-24 relative">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-bg-card/30"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <p class="text-primary font-medium mb-2" data-i18n="experience.badge">Experiencia</p>
+      <h2 class="section-title" data-i18n="experience.title">Mi trayectoria profesional</h2>
+      <p class="section-subtitle mx-auto" data-i18n="experience.subtitle">
+        Un recorrido por los roles y proyectos que han moldeado mi carrera como ingeniero de software
+      </p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative">
+      <!-- Timeline Line -->
+      <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-border transform md:-translate-x-px"></div>
+
+      <!-- Experience Items -->
+      <div class="space-y-12">
+        {
+          experiences.map((exp, index) => (
+            <div class={`relative flex flex-col md:flex-row ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+              <!-- Timeline Dot -->
+              <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 md:-translate-x-1/2 ring-4 ring-bg-dark mt-2"></div>
+
+              <!-- Content -->
+              <div class={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pl-12 md:text-right' : 'md:pr-12'}`}>
+                <div class="card ml-6 md:ml-0">
+                  <!-- Period -->
+                  <span class="inline-block px-3 py-1 text-xs font-medium bg-primary/10 text-primary-light rounded-full mb-3">
+                    {exp.period}
+                  </span>
+
+                  <!-- Role & Company -->
+                  <h3 class="text-xl font-semibold text-text-primary mb-1">{exp.role}</h3>
+                  <p class="text-primary font-medium mb-1">{exp.company}</p>
+                  <p class="text-text-muted text-sm mb-4">{exp.location}</p>
+
+                  <!-- Description -->
+                  <p class="text-text-secondary text-sm leading-relaxed mb-4">{exp.description}</p>
+
+                  <!-- Achievements -->
+                  <div class="mb-4">
+                    <h4 class="text-sm font-semibold text-text-primary mb-2" data-i18n="experience.achievements">Logros destacados:</h4>
+                    <ul class={`space-y-1 ${index % 2 === 0 ? 'md:text-right' : ''}`}>
+                      {exp.achievements.map((achievement) => (
+                        <li class="text-text-muted text-sm flex items-start gap-2">
+                          <span class="text-primary mt-0.5">▸</span>
+                          {achievement}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <!-- Technologies -->
+                  <div class="flex flex-wrap gap-2">
+                    {exp.technologies.map((tech) => (
+                      <span class="tag text-xs">{tech}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

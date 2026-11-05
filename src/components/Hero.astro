@@ -1,0 +1,85 @@
+---
+const stats = [
+  { value: '3+', label: 'Años de experiencia', valueKey: 'hero.stat1.value', labelKey: 'hero.stat1.label' },
+  { value: '15+', label: 'Proyectos completados', valueKey: 'hero.stat2.value', labelKey: 'hero.stat2.label' },
+  { value: '10+', label: 'Tecnologías dominadas', valueKey: 'hero.stat3.value', labelKey: 'hero.stat3.label' },
+];
+---
+
+<section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background Effects -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/3 rounded-full blur-3xl"></div>
+  </div>
+
+  <!-- Grid Pattern -->
+  <div
+    class="absolute inset-0 opacity-[0.02]"
+    style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 60px 60px;"
+  >
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+    <div class="text-center">
+      <!-- Badge -->
+      <div class="animate-fade-in inline-flex items-center gap-2 px-4 py-2 bg-bg-card/50 border border-border rounded-full mb-8">
+        <span class="w-2 h-2 bg-success rounded-full animate-pulse"></span>
+        <span class="text-sm text-text-secondary" data-i18n="hero.available">Disponible para nuevos proyectos</span>
+      </div>
+
+      <!-- Name -->
+      <h1 class="animate-fade-in-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6" style="animation-delay: 0.1s;">
+        <span class="text-text-primary" data-i18n="hero.name">Daniel Leandro</span><br />
+        <span class="gradient-text" data-i18n="hero.lastname">Gutierrez Ospina</span>
+      </h1>
+
+      <!-- Title -->
+      <p class="animate-fade-in-up text-xl sm:text-2xl text-text-secondary font-medium mb-4" style="animation-delay: 0.2s;" data-i18n="hero.title">
+        Ingeniero de Software
+      </p>
+
+      <!-- Description -->
+      <p class="animate-fade-in-up text-lg text-text-muted max-w-2xl mx-auto mb-8" style="animation-delay: 0.3s;" data-i18n="hero.description">
+        Especializado en el ecosistema web, automatización y diseño de arquitecturas orientadas a resultados.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="animate-fade-in-up flex flex-wrap items-center justify-center gap-4 mb-16" style="animation-delay: 0.4s;">
+        <a href="#proyectos" class="btn-primary">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0l-4-4m4 4l-4 4" />
+          </svg>
+          <span data-i18n="hero.cta1">Ver proyectos</span>
+        </a>
+        <a href="#contacto" class="btn-secondary">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          <span data-i18n="hero.cta2">Contactar</span>
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="animate-fade-in-up grid grid-cols-3 gap-8 max-w-lg mx-auto" style="animation-delay: 0.5s;">
+        {
+          stats.map((stat) => (
+            <div>
+              <div class="text-3xl font-bold gradient-text" data-i18n={stat.valueKey}>{stat.value}</div>
+              <div class="text-sm text-text-muted mt-1" data-i18n={stat.labelKey}>{stat.label}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <a href="#sobre-mi" class="text-text-muted hover:text-primary transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </a>
+  </div>
+</section>
