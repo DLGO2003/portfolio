@@ -26,4 +26,4 @@ pnpm-debug.log*
 .idea/
 
 # readme
-README.md
+.README.md
