@@ -17,6 +17,9 @@ pnpm-debug.log*
 .env
 .env.production
 
+# sensitive documentation
+README.PRODUCTION.md
+
 # macOS
 .DS_Store
 
@@ -26,4 +29,4 @@ pnpm-debug.log*
 .idea/
 
 # readme
-.README.md
+README.PRODUCTION.md
